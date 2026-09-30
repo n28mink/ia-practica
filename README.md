@@ -104,20 +104,18 @@ Añade `?demo-ads` a cualquier URL para ver dónde aparecerán los anuncios
 - Formularios con validación, límites de longitud y campo honeypot antispam.
 - Sin dependencias externas de JS/CSS: todo el código es propio.
 
-### Cabeceras HTTP recomendadas en el hosting definitivo
+### Cabeceras HTTP (X-Frame-Options, HSTS, Permissions-Policy…)
 
-Además del CSP en metaetiqueta, configura estas cabeceras en tu hosting/CDN:
+El CSP en metaetiqueta no puede fijar `X-Frame-Options`, `Strict-Transport-Security`
+ni `frame-ancestors` (solo funcionan como cabecera HTTP real), así que el repo
+incluye dos archivos listos para usar, según tu hosting:
 
-```
-Strict-Transport-Security: max-age=31536000; includeSubDomains
-X-Content-Type-Options: nosniff
-X-Frame-Options: DENY
-Referrer-Policy: strict-origin-when-cross-origin
-Permissions-Policy: camera=(), microphone=(), geolocation=()
-```
+- `_headers` — Netlify y Cloudflare Pages lo detectan automáticamente.
+- `.htaccess` — Apache (también fuerza HTTPS, desactiva el listado de
+  directorios y cachea los estáticos).
 
-En Netlify se añaden en un archivo `_headers`; en Cloudflare con reglas de
-transformación; en Apache con `.htaccess` (`Header set ...`).
+Si usas Vercel o un CDN distinto, replica las mismas cabeceras con las reglas
+propias de esa plataforma (ambos archivos documentan los valores exactos).
 
 ## SEO
 

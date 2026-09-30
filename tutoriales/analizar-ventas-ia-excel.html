@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Cómo analizar tus ventas con IA en Excel y Google Sheets | IA Práctica</title>
+  <meta name="description" content="Sube tu archivo de ventas a la IA y obtén insights en minutos: qué se vende, cuándo y a quién. Guía paso a paso con Excel y Google Sheets, sin programar.">
+  <link rel="canonical" href="https://www.iapractica.com/tutoriales/analizar-ventas-ia-excel.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#fbfbfd">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="IA Práctica">
+  <meta property="og:title" content="Cómo analizar tus ventas con IA en Excel y Google Sheets">
+  <meta property="og:description" content="Sube tu archivo de ventas y obtén insights en minutos: qué se vende, cuándo y a quién.">
+  <meta property="og:url" content="https://www.iapractica.com/tutoriales/analizar-ventas-ia-excel.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://pagead2.googlesyndication.com https://www.googletagservices.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https:; frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cómo analizar tus ventas con IA en Excel y Google Sheets",
+    "inLanguage": "es",
+    "author": { "@type": "Organization", "name": "IA Práctica", "url": "https://www.iapractica.com/" },
+    "publisher": { "@type": "Organization", "name": "IA Práctica", "url": "https://www.iapractica.com/" },
+    "datePublished": "2026-09-30",
+    "dateModified": "2026-09-30",
+    "description": "Sube tu archivo de ventas a la IA y obtén insights en minutos: qué se vende, cuándo y a quién.",
+    "mainEntityOfPage": "https://www.iapractica.com/tutoriales/analizar-ventas-ia-excel.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.iapractica.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Tutoriales", "item": "https://www.iapractica.com/tutoriales/" },
+      { "@type": "ListItem", "position": 3, "name": "Analizar tus ventas con IA en Excel y Sheets" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Es seguro subir mis datos de ventas a la IA?", "acceptedAnswer": { "@type": "Answer", "text": "Sube solo datos agregados o anonimizados: quita nombres, teléfonos y direcciones de clientes antes de subir el archivo. Puedes desactivar el uso de tus conversaciones para entrenamiento en la configuración de la herramienta." } },
+      { "@type": "Question", "name": "¿Funciona si mis datos están desordenados?", "acceptedAnswer": { "@type": "Answer", "text": "La IA puede ayudarte a limpiarlos, pero necesita una base mínima: una columna de fecha, una de producto y una de monto. El paso 1 de este tutorial te muestra cómo ordenar tu archivo en 15 minutos." } },
+      { "@type": "Question", "name": "¿Qué herramienta de IA uso para esto?", "acceptedAnswer": { "@type": "Answer", "text": "ChatGPT, Claude y Gemini permiten subir archivos (CSV o Excel) y analizarlos conversando. Las versiones gratuitas tienen límites de tamaño, suficientes para los datos de una pyme." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div class="read-progress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="IA Práctica — inicio">
+        <span class="brand-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.8 2.8M16.2 16.2L19 19M19 5l-2.8 2.8M7.8 16.2L5 19"/><circle cx="12" cy="12" r="3.2" fill="#fff" stroke="none"/></svg></span>
+        <span>IA Práctica<small>Tutoriales de IA para negocios</small></span>
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+      <nav class="nav" id="site-nav" aria-label="Navegación principal">
+        <a href="/">Inicio</a>
+        <a href="/tutoriales/" aria-current="page">Tutoriales</a>
+        <a href="/sobre-nosotros.html">Sobre nosotros</a>
+        <a href="/contacto.html">Contacto</a>
+        <a href="/tutoriales/" class="btn btn--primary btn--sm">Empezar ahora</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero hero--page">
+      <div class="container">
+        <p class="breadcrumb"><a href="/">Inicio</a> · <a href="/tutoriales/">Tutoriales</a> · Gestión</p>
+        <span class="kicker">Gestión y finanzas · Nivel principiante</span>
+        <h1>Cómo analizar tus ventas con IA en Excel y Google Sheets</h1>
+        <p class="lead">Sube tu archivo de ventas, hazle preguntas en español y descubre qué se vende, cuándo y a quién. Decisiones con datos, sin ser analista.</p>
+        <div class="article-meta">
+          <span>Actualizado el 30 de septiembre de 2026</span>
+          <span>30 min de lectura</span>
+          <span><span class="lvl lvl--easy">Principiante</span> · sin código</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="ad-slot" data-ad-format="horizontal" aria-hidden="true">
+        <div class="ad-inner"><strong>Espacio publicitario</strong><span>Anuncio responsivo · ?demo-ads para vista previa</span></div>
+      </div>
+    </div>
+
+    <div class="container section" style="padding-top:24px">
+      <div class="article-layout">
+        <article class="prose">
+          <p>Tienes meses (o años) de ventas registradas en un Excel… y nunca las analizas. No eres el único: muchas pymes registran datos que después nadie consulta. Este tutorial cambia eso: en una tarde convertirás tu archivo de ventas en <strong>respuestas concretas</strong>: cuáles son tus productos estrella, tus mejores días, tus clientes más valiosos y dónde estás perdiendo dinero.</p>
+
+          <div class="toc" aria-label="Contenido del tutorial">
+            <strong>En este tutorial</strong>
+            <ol>
+              <li><a href="#necesitas">Qué necesitas</a></li>
+              <li><a href="#paso1">Paso 1: Ordena tu archivo en 15 minutos</a></li>
+              <li><a href="#paso2">Paso 2: Anonimiza tus datos (importante)</a></li>
+              <li><a href="#paso3">Paso 3: Sube el archivo y haz las 10 preguntas clave</a></li>
+              <li><a href="#paso4">Paso 4: Convierte insights en decisiones</a></li>
+              <li><a href="#paso5">Paso 5: Crea tu reporte mensual automático</a></li>
+              <li><a href="#errores">4 errores comunes</a></li>
+              <li><a href="#checklist">Checklist</a></li>
+            </ol>
+          </div>
+
+          <h2 id="necesitas">Qué necesitas</h2>
+          <ul>
+            <li><strong>Tu archivo de ventas</strong> en Excel o Google Sheets (aunque esté desordenado).</li>
+            <li><strong>ChatGPT, Claude o Gemini</strong> (cuenta gratuita; las tres permiten subir archivos).</li>
+            <li><strong>1-2 horas</strong> la primera vez; 30 minutos al mes después.</li>
+          </ul>
+
+          <h2 id="paso1">Paso 1: Ordena tu archivo en 15 minutos</h2>
+          <p>La IA necesita una tabla mínimamente ordenada. Tu archivo debe tener estas columnas (renómbralas así):</p>
+          <table>
+            <thead><tr><th>Columna</th><th>Ejemplo</th><th>Obligatoria</th></tr></thead>
+            <tbody>
+              <tr><td><code>fecha</code></td><td>2026-09-15</td><td>Sí</td></tr>
+              <tr><td><code>producto</code></td><td>Torta de chocolate 1kg</td><td>Sí</td></tr>
+              <tr><td><code>cantidad</code></td><td>2</td><td>Sí</td></tr>
+              <tr><td><code>monto</code></td><td>50</td><td>Sí</td></tr>
+              <tr><td><code>canal</code></td><td>WhatsApp / Tienda / Instagram</td><td>Recomendada</td></tr>
+              <tr><td><code>categoria</code></td><td>Tortas / Postres / Bebidas</td><td>Recomendada</td></tr>
+            </tbody>
+          </table>
+          <p>Si tus datos están en varios archivos o con formatos distintos, pídele ayuda a la IA <strong>antes</strong> de subirlos:</p>
+          <div class="prompt"><pre>Tengo un archivo de ventas desordenado. Explícame paso a paso cómo limpiarlo en [Excel / Google Sheets]:
+- Las fechas están en formatos distintos (algunas como "15/9/26" y otras como texto)
+- Hay productos escritos de varias formas ("torta choc", "Torta de Chocolate")
+- Hay filas vacías y duplicadas
+
+Dame instrucciones concretas con los menús exactos que debo usar. No me des fórmulas complicadas.</pre></div>
+
+          <h2 id="paso2">Paso 2: Anonimiza tus datos (importante)</h2>
+          <p>Antes de subir nada a una IA externa:</p>
+          <ul class="checklist">
+            <li><strong>Elimina</strong> columnas con nombres, teléfonos, direcciones o emails de clientes</li>
+            <li><strong>Elimina</strong> cualquier contraseña o dato bancario (no debería estar ahí, pero revisa)</li>
+            <li><strong>Conserva</strong> solo: fecha, producto, cantidad, monto, canal, categoría</li>
+            <li>Guarda el archivo limpio como CSV o XLSX con un nombre claro: <code>ventas-2026-limpio.csv</code></li>
+          </ul>
+          <div class="callout callout--warn">
+            <p><strong>Regla de privacidad:</strong> si tu herramienta de IA usa las conversaciones para entrenar modelos, desactívalo en Configuración antes de subir datos de tu negocio. Y nunca subas datos personales de clientes.</p>
+          </div>
+
+          <h2 id="paso3">Paso 3: Sube el archivo y haz las 10 preguntas clave</h2>
+          <p>Sube el archivo a la IA y pégale este prompt inicial:</p>
+          <div class="prompt"><pre>Te acabo de subir mi archivo de ventas de [periodo, ej: enero a septiembre 2026].
+Es de mi negocio: [descripción en 1 línea].
+
+Primero dime: ¿cuántas filas y columnas tiene? ¿Hay datos faltantes o errores evidentes?
+Después respóndeme estas 10 preguntas con números concretos:
+
+1. ¿Cuál fue mi venta total del periodo y cómo se compara mes a mes?
+2. ¿Cuáles son mis 5 productos más vendidos (por monto)?
+3. ¿Cuáles son mis 5 productos menos vendidos?
+4. ¿Qué días de la semana vendo más?
+5. ¿Qué canal vende más (WhatsApp, tienda, Instagram)?
+6. ¿Cuál es mi ticket promedio por venta?
+7. ¿Hay productos que se venden juntos frecuentemente?
+8. ¿Ves alguna tendencia: meses creciendo o cayendo?
+9. ¿Qué categoría deja más dinero en total?
+10. Dame 3 recomendaciones accionables para vender más el próximo mes.
+
+Usa tablas cuando ayuden y explica cada hallazgo en lenguaje simple, sin jerga.</pre></div>
+          <p>Lee las respuestas con calma. <strong>Verifica los números clave</strong> contra tu archivo (la IA puede equivocarse en cálculos: pídele "muéstrame cómo calculaste el ticket promedio" si algo no te cuadra).</p>
+          <div class="callout callout--tip">
+            <p><strong>Sigue preguntando:</strong> la magia está en la conversación. "¿Por qué crees que cayeron las ventas en julio?", "¿qué pasaría si elimino los 5 productos que menos venden?", "compara este trimestre con el anterior".</p>
+          </div>
+
+          <h2 id="paso4">Paso 4: Convierte insights en decisiones</h2>
+          <p>Los datos sin acción no sirven. Estos son los patrones más comunes y qué hacer con cada uno:</p>
+          <table>
+            <thead><tr><th>Si descubres que…</th><th>Decisión práctica</th></tr></thead>
+            <tbody>
+              <tr><td>El 20% de tus productos genera el 80% de las ventas</td><td>Promociona esos productos estrella; evalúa discontinuar la cola</td></tr>
+              <tr><td>Un día de la semana vende el doble</td><td>Concentra promociones y personal ese día</td></tr>
+              <tr><td>Un canal apenas vende</td><td>O lo trabajas en serio 30 días o dejas de invertirle tiempo</td></tr>
+              <tr><td>Dos productos se venden juntos</td><td>Crea un combo con descuento y ofrécelo siempre</td></tr>
+              <tr><td>Las ventas caen un mes específico</td><td>Planifica una promoción para ese mes el próximo año</td></tr>
+            </tbody>
+          </table>
+
+          <h2 id="paso5">Paso 5: Crea tu reporte mensual automático</h2>
+          <p>Guarda este prompt en un documento. Cada fin de mes, sube tu archivo actualizado y pégalo:</p>
+          <div class="prompt"><pre>Este es mi archivo de ventas actualizado a [mes/año].
+Genera mi reporte mensual con:
+1. Resumen ejecutivo en 5 líneas
+2. Tabla: ventas por producto (top 10 y bottom 5)
+3. Comparativa con el mes anterior (monto total y % de cambio)
+4. Alertas: productos que cayeron más del 20%, días flojos
+5. 3 acciones recomendadas para el próximo mes
+
+Formato claro para leer en 5 minutos.</pre></div>
+          <p>En 30 minutos al mes tendrás el mismo reporte por el que una consultora te cobraría cientos de dólares.</p>
+
+          <h2 id="errores">4 errores comunes</h2>
+          <ol>
+            <li><strong>Subir datos personales de clientes.</strong> Anonimiza siempre. No hay excepción.</li>
+            <li><strong>Creerle ciegamente los cálculos.</strong> Verifica los 2-3 números más importantes. La IA razona bien pero a veces suma mal.</li>
+            <li><strong>Analizar una sola vez y olvidar.</strong> El valor está en la repetición mensual: las tendencias solo aparecen con el tiempo.</li>
+            <li><strong>Quedarse en el análisis.</strong> Cada reporte debe terminar en máximo 3 acciones. Si no hay acción, el análisis fue entretenimiento.</li>
+          </ol>
+
+          <h2 id="checklist">Checklist</h2>
+          <ul class="checklist">
+            <li>Ordenar mi archivo con las 6 columnas base</li>
+            <li>Eliminar datos personales y guardar versión limpia</li>
+            <li>Desactivar el uso de mis datos para entrenamiento</li>
+            <li>Subir el archivo y hacer las 10 preguntas clave</li>
+            <li>Verificar los números más importantes</li>
+            <li>Elegir 3 acciones basadas en los hallazgos</li>
+            <li>Guardar el prompt del reporte mensual y agendarlo</li>
+          </ul>
+
+          <div class="author-box">
+            <div class="author-avatar" aria-hidden="true">IP</div>
+            <div>
+              <strong>Equipo IA Práctica</strong>
+              <p class="small muted" style="margin:.3em 0 0">Revisamos cada tutorial antes de publicarlo y lo actualizamos cuando las interfaces cambian. ¿Algo no te funcionó? <a href="/contacto.html">Cuéntanos</a>.</p>
+            </div>
+          </div>
+        </article>
+
+        <aside class="sidebar" aria-label="Contenido relacionado">
+          <div class="widget">
+            <h3>En este tutorial</h3>
+            <ul>
+              <li><a href="#necesitas">Qué necesitas</a></li>
+              <li><a href="#paso1">Paso 1: ordena tu archivo</a></li>
+              <li><a href="#paso2">Paso 2: anonimiza tus datos</a></li>
+              <li><a href="#paso3">Paso 3: las 10 preguntas clave</a></li>
+              <li><a href="#paso4">Paso 4: de insights a decisiones</a></li>
+              <li><a href="#paso5">Paso 5: reporte mensual</a></li>
+              <li><a href="#checklist">Checklist</a></li>
+            </ul>
+          </div>
+          <div class="ad-slot" data-ad-format="rectangle" aria-hidden="true">
+            <div class="ad-inner"><strong>Espacio publicitario</strong><span>Anuncio responsivo · ?demo-ads para vista previa</span></div>
+          </div>
+          <div class="widget">
+            <h3>Sigue aprendiendo</h3>
+            <ul>
+              <li><a href="/tutoriales/chatgpt-marketing-pyme.html">ChatGPT para el marketing</a></li>
+              <li><a href="/tutoriales/atencion-cliente-ia.html">Automatizar la atención al cliente</a></li>
+              <li><a href="/tutoriales/capacitar-equipo-ia-30-dias.html">Capacita a tu equipo en IA</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="ad-slot" data-ad-format="horizontal" aria-hidden="true">
+        <div class="ad-inner"><strong>Espacio publicitario</strong><span>Anuncio responsivo · ?demo-ads para vista previa</span></div>
+      </div>
+    </div>
+
+    <section class="section section--soft">
+      <div class="container">
+        <h2 class="center">También te puede interesar</h2>
+        <div class="grid grid--3" style="margin-top:2em">
+          <article class="card">
+            <div class="card-art" style="background:#0d9488" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.3" fill="#fff" stroke="none"/></svg></div>
+            <div class="card-body">
+              <span class="tag tag--violet">Marketing</span>
+              <h3><a href="/tutoriales/chatgpt-marketing-pyme.html">Cómo usar ChatGPT para el marketing de tu pyme</a></h3>
+              <p>Calendario de contenidos de 30 días en una tarde.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-art" style="background:#9a3412" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="card-body">
+              <span class="tag tag--amber">Equipo</span>
+              <h3><a href="/tutoriales/capacitar-equipo-ia-30-dias.html">Capacita a tu equipo en IA: plan de 30 días</a></h3>
+              <p>Que todo tu equipo adopte la IA sin fricción.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-art" style="background:#d97706" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+            <div class="card-body">
+              <span class="tag tag--amber">Atención al cliente</span>
+              <h3><a href="/tutoriales/atencion-cliente-ia.html">Cómo automatizar la atención al cliente con IA</a></h3>
+              <p>Responde la mayoría de las preguntas frecuentes en automático.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand"><span class="brand-mark" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.8 2.8M16.2 16.2L19 19M19 5l-2.8 2.8M7.8 16.2L5 19"/><circle cx="12" cy="12" r="3.2" fill="#fff" stroke="none"/></svg></span>IA Práctica</div>
+          <p class="small">Tutoriales paso a paso en español para que profesionales y pequeñas empresas aprovechen la inteligencia artificial. Sin código, sin tecnicismos.</p>
+        </div>
+        <div>
+          <h4>Tutoriales</h4>
+          <ul>
+            <li><a href="/tutoriales/chatgpt-marketing-pyme.html">ChatGPT para marketing</a></li>
+            <li><a href="/tutoriales/atencion-cliente-ia.html">Atención al cliente con IA</a></li>
+            <li><a href="/tutoriales/chatbot-whatsapp-sin-programar.html">Chatbot de WhatsApp</a></li>
+            <li><a href="/tutoriales/analizar-ventas-ia-excel.html">Analizar ventas con IA</a></li>
+            <li><a href="/tutoriales/">Ver todos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Sitio</h4>
+          <ul>
+            <li><a href="/sobre-nosotros.html">Sobre nosotros</a></li>
+            <li><a href="/contacto.html">Contacto</a></li>
+            <li><a href="/tutoriales/">Todos los tutoriales</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/politica-privacidad.html">Política de privacidad</a></li>
+            <li><a href="/politica-cookies.html">Política de cookies</a></li>
+            <li><a href="/terminos.html">Términos y condiciones</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> IA Práctica. Todos los derechos reservados.</span>
+        <span><button type="button" data-open-cookie-settings>Preferencias de cookies</button></span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+    <p><strong>Usamos cookies</strong> para que el sitio funcione, medir visitas y —si lo aceptas— mostrarte publicidad personalizada de Google AdSense. Puedes aceptar, rechazar o personalizar. Más info en nuestra <a href="/politica-cookies.html">política de cookies</a>.</p>
+    <div class="cookie-actions">
+      <button type="button" class="btn btn--primary btn--sm" id="cookie-accept">Aceptar todas</button>
+      <button type="button" class="btn btn--ghost btn--sm" id="cookie-reject">Rechazar</button>
+      <button type="button" class="btn btn--ghost btn--sm" id="cookie-customize">Personalizar</button>
+    </div>
+  </div>
+  <div class="cookie-modal" id="cookie-modal" role="dialog" aria-modal="true" aria-label="Preferencias de cookies">
+    <div class="cookie-dialog">
+      <h3>Preferencias de cookies</h3>
+      <p class="small muted">Elige qué cookies permites. Las estrictamente necesarias no se pueden desactivar porque el sitio no funcionaría sin ellas.</p>
+      <div class="cookie-row">
+        <div><h4>Estrictamente necesarias</h4><p>Recuerdan tu elección de cookies y mantienen la seguridad del sitio. Siempre activas.</p></div>
+        <label class="switch"><input type="checkbox" checked disabled aria-label="Cookies necesarias, siempre activas"><span class="track" aria-hidden="true"></span></label>
+      </div>
+      <div class="cookie-row">
+        <div><h4>Analítica</h4><p>Nos ayudan a entender qué tutoriales son más útiles (medición anónima).</p></div>
+        <label class="switch"><input type="checkbox" id="consent-analytics"><span class="track" aria-hidden="true"></span></label>
+      </div>
+      <div class="cookie-row">
+        <div><h4>Marketing y publicidad</h4><p>Permiten a Google AdSense mostrar anuncios personalizados que financian el contenido gratuito.</p></div>
+        <label class="switch"><input type="checkbox" id="consent-marketing"><span class="track" aria-hidden="true"></span></label>
+      </div>
+      <div class="cookie-actions" style="margin-top:18px">
+        <button type="button" class="btn btn--primary btn--sm" id="cookie-save">Guardar preferencias</button>
+        <button type="button" class="btn btn--ghost btn--sm" id="cookie-close">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

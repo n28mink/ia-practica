@@ -1,0 +1,7 @@
+# ads.txt — IA Práctica
+# IMPORTANTE: reemplaza esta línea con tu propio ID de editor cuando Google AdSense
+# apruebe tu sitio. Lo encontrarás en tu cuenta de AdSense > Cuenta > Información de cuenta.
+# Formato: google.com, pub-TU_ID_DE_16_DIGITOS, DIRECT, f08c47fec0942fa0
+#
+# Ejemplo (NO usar, es solo formato):
+# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

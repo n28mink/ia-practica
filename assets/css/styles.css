@@ -185,6 +185,10 @@ p{margin:0 0 1em}
   background:var(--bg-soft);color:var(--ink-2);
   padding:5px 12px;border-radius:var(--pill);white-space:nowrap;
 }
+.tag--green{background:var(--accent-tint);color:var(--accent-ink)}
+.tag--amber{background:#fdf3e7;color:#9a5b00}
+.tag--blue{background:#eef4fd;color:#1d4ed8}
+.tag--violet{background:#f3e8ff;color:#6b21a8}
 .lvl{font-size:.75rem;font-weight:600;padding:5px 12px;border-radius:var(--pill);white-space:nowrap}
 .lvl--easy{background:var(--accent-tint);color:var(--accent-ink)}
 .lvl--mid{background:#fdf3e7;color:#9a5b00}
@@ -262,6 +266,8 @@ p{margin:0 0 1em}
 .hp-field{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 
 /* ============ Formularios ============ */
+.form-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:36px}
+@media (max-width:640px){.form-card{padding:24px}}
 .field{margin-bottom:20px}
 .field label{display:block;font-weight:600;margin-bottom:8px;font-size:.9375rem}
 .field input,.field textarea,.field select{
@@ -272,8 +278,13 @@ p{margin:0 0 1em}
   outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(13,148,136,.15);
 }
 .field textarea{min-height:140px;resize:vertical}
-.error-msg{color:#b3261e;font-size:.875rem;margin-top:6px}
-.form-feedback{border-radius:12px;padding:16px 20px;margin-top:20px}
+.error-msg{display:none;color:#b3261e;font-size:.875rem;margin-top:6px}
+.field.invalid input,.field.invalid textarea,.field.invalid select{border-color:#b3261e}
+.field.invalid .error-msg{display:block}
+.form-feedback{border-radius:12px;padding:16px 20px;margin-top:20px;font-weight:700;background:var(--bg-soft);color:var(--ink-2)}
+.form-feedback:empty{display:none}
+.form-feedback--ok{background:var(--accent-tint);color:var(--accent-ink)}
+.form-feedback--warn{background:#fdf3e7;color:#9a5b00}
 
 /* ============ Artículo ============ */
 .article-layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;align-items:start}

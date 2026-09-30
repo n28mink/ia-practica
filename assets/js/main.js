@@ -335,15 +335,18 @@
   });
 
   function showFormMessage(form, text, ok) {
-    var box = form.querySelector('.form-feedback');
+    // Reutiliza el contenedor accesible (role="status") si la página lo trae;
+    // si no existe, lo crea para que el mensaje siempre se anuncie a lectores de pantalla.
+    var box = form.querySelector('[data-form-note]') || form.querySelector('.form-feedback');
     if (!box) {
       box = document.createElement('p');
-      box.className = 'form-feedback';
+      box.setAttribute('role', 'status');
       form.appendChild(box);
     }
     box.textContent = text;
-    box.style.color = ok ? 'var(--accent-ink)' : '#92400e';
-    box.style.fontWeight = '700';
+    box.classList.add('form-feedback');
+    box.classList.toggle('form-feedback--ok', !!ok);
+    box.classList.toggle('form-feedback--warn', !ok);
   }
 
   // ---- Filter buttons (tutorials index) ----

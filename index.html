@@ -7,7 +7,7 @@
   <meta name="description" content="Aprende a usar ChatGPT, Gemini, Claude y otras IA en tu negocio con tutoriales paso a paso en español: marketing, ventas, atención al cliente y más.">
   <link rel="canonical" href="https://www.iapractica.com/">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#fbfbfd">
+  <meta name="theme-color" content="#f7f4ee">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
@@ -103,23 +103,47 @@
       <div class="container">
         <div class="hero-inner">
           <span class="kicker">Guías paso a paso · 100% en español</span>
-          <h1>La inteligencia artificial, explicada para tu negocio</h1>
+          <h1>La inteligencia artificial, <span class="hl">explicada</span> para tu negocio</h1>
           <p class="lead">Tutoriales prácticos para profesionales y pequeñas empresas: sin tecnicismos, sin programar y con herramientas gratuitas. Aprende hoy, aplícalo mañana.</p>
           <div class="hero-cta">
             <a href="/tutoriales/" class="btn btn--primary">Ver tutoriales</a>
             <a href="#como-funciona" class="link-more">Cómo funciona</a>
           </div>
         </div>
-        <div class="prompt-demo" aria-label="Demostración: así se ve un prompt de nuestros tutoriales">
-          <div class="prompt-demo-bar" aria-hidden="true"><span></span><span></span><span></span><em>asistente IA · ejemplo real</em></div>
-          <div class="prompt-demo-body">
-            <p class="pd-label">Tú escribes:</p>
+
+        <!-- Compositor de prompts: elige un área y mira un ejemplo real de lo que enseñamos -->
+        <div class="composer" aria-label="Demostración: así se ve un prompt de nuestros tutoriales">
+          <div class="composer-body">
+            <p class="pd-label">Tú escribes</p>
             <p class="pd-prompt"><span id="pd-text">Actúa como experto en marketing para pymes. Tengo una panadería con 8 empleados: dame 5 ideas de publicaciones para Instagram esta semana, con el texto listo para copiar.</span><span class="pd-caret" id="pd-caret" aria-hidden="true"></span></p>
-            <div class="pd-response" id="pd-response">
-              <p class="pd-label">La IA responde:</p>
-              <p>“¡Vamos! Aquí tienes 5 ideas listas para publicar: 1) el pan saliendo del horno a las 6 a.&nbsp;m.…”</p>
-              <a class="pd-link" href="/tutoriales/chatgpt-marketing-pyme.html">Ver el tutorial paso a paso →</a>
+            <div class="pd-response" id="pd-response" aria-live="polite">
+              <p class="pd-label">La IA responde</p>
+              <p id="pd-reply">“¡Vamos! Aquí tienes 5 ideas listas para publicar: 1) el pan saliendo del horno a las 6 a.&nbsp;m.…”</p>
+              <a class="pd-link" id="pd-link" href="/tutoriales/chatgpt-marketing-pyme.html">Ver el tutorial paso a paso →</a>
             </div>
+          </div>
+          <div class="composer-bar">
+            <div class="composer-chips" id="pd-chips">
+              <a class="chip" href="/tutoriales/#marketing" aria-pressed="true"
+                 data-prompt="Actúa como experto en marketing para pymes. Tengo una panadería con 8 empleados: dame 5 ideas de publicaciones para Instagram esta semana, con el texto listo para copiar."
+                 data-reply="“¡Vamos! Aquí tienes 5 ideas listas para publicar: 1) el pan saliendo del horno a las 6 a. m.…”"
+                 data-href="/tutoriales/chatgpt-marketing-pyme.html">Marketing</a>
+              <a class="chip" href="/tutoriales/#atencion" aria-pressed="false"
+                 data-prompt="Soy dueño de una tienda online. Redacta una respuesta amable para un cliente que pregunta por los plazos de envío y las devoluciones, en máximo 80 palabras."
+                 data-reply="“¡Hola! Gracias por escribirnos. Enviamos en 24-48 h y tienes 14 días para devolver cualquier producto sin coste…”"
+                 data-href="/tutoriales/atencion-cliente-ia.html">Atención al cliente</a>
+              <a class="chip" href="/tutoriales/#gestion" aria-pressed="false"
+                 data-prompt="Te paso las ventas del último trimestre de mi tienda en una tabla. ¿Qué productos se venden más, en qué días y qué me conviene hacer el mes que viene?"
+                 data-reply="“Tus 3 productos estrella suman el 62 % de los ingresos y los viernes venden el doble que los lunes. Te propongo…”"
+                 data-href="/tutoriales/analizar-ventas-ia-excel.html">Ventas</a>
+              <a class="chip" href="/tutoriales/#equipo" aria-pressed="false"
+                 data-prompt="Diseña un plan de 30 días para enseñar a usar IA a mi equipo de 6 personas, sin que nadie se agobie. Una tarea corta por semana."
+                 data-reply="“Semana 1: que cada persona automatice una tarea de 10 minutos. Semana 2: crear una biblioteca compartida de prompts…”"
+                 data-href="/tutoriales/capacitar-equipo-ia-30-dias.html">Equipo</a>
+            </div>
+            <a class="composer-send" id="pd-send" href="/tutoriales/chatgpt-marketing-pyme.html" aria-label="Abrir el tutorial de este ejemplo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            </a>
           </div>
         </div>
       </div>
@@ -132,101 +156,127 @@
       </div>
     </div>
 
-    <!-- ============ CATEGORÍAS ============ -->
+    <!-- ============ CIFRAS ============ -->
+    <section class="container" aria-label="Qué encontrarás en IA Práctica">
+      <div class="proof">
+        <div class="proof-item"><strong>6</strong><span>tutoriales paso a paso</span></div>
+        <div class="proof-item"><strong>100 %</strong><span>gratis y en español</span></div>
+        <div class="proof-item"><strong>3 meses</strong><span>máximo entre revisiones</span></div>
+        <div class="proof-item"><strong>0</strong><span>líneas de código necesarias</span></div>
+      </div>
+    </section>
+
+    <!-- ============ CATEGORÍAS (bento) ============ -->
     <section class="section" id="categorias">
       <div class="container">
-        <div class="center" style="max-width:640px;margin:0 auto 2.5em">
-          <span class="kicker">Elige por dónde empezar</span>
-          <h2>Aprende IA según tu área de trabajo</h2>
-          <p class="lead" style="margin:0 auto">Cada tutorial está pensado para un problema real de un negocio real. Sin teoría innecesaria: pasos, ejemplos y plantillas.</p>
+        <div class="section-head">
+          <div>
+            <span class="kicker">Elige por dónde empezar</span>
+            <h2>Aprende IA según tu área de trabajo</h2>
+          </div>
+          <p class="lead">Cada tutorial resuelve un problema real de un negocio real. Sin teoría innecesaria: pasos, ejemplos y plantillas.</p>
         </div>
-        <div class="grid grid--4">
-          <a href="/tutoriales/#marketing" class="cat-card">
+        <div class="bento">
+          <a href="/tutoriales/#marketing" class="cat-card cat-card--wide cat-card--ink">
             <div class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.3" fill="#fff" stroke="none"/></svg></div>
-            <h3>Marketing y ventas</h3>
-            <p class="muted small">Contenido, copys y campañas que venden, con herramientas gratuitas.</p>
+            <div>
+              <h3>Marketing y ventas</h3>
+              <p>Contenido, copys y campañas que venden, con herramientas gratuitas.</p>
+              <span class="cat-count">2 tutoriales</span>
+            </div>
           </a>
           <a href="/tutoriales/#atencion" class="cat-card">
             <div class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
-            <h3>Atención al cliente</h3>
-            <p class="muted small">Respuestas automáticas y chatbots de WhatsApp sin programar.</p>
+            <div>
+              <h3>Atención al cliente</h3>
+              <p>Respuestas automáticas y chatbots de WhatsApp sin programar.</p>
+              <span class="cat-count">2 tutoriales</span>
+            </div>
           </a>
           <a href="/tutoriales/#gestion" class="cat-card">
             <div class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
-            <h3>Gestión y finanzas</h3>
-            <p class="muted small">Analiza tus ventas con IA y decide con datos, no con corazonadas.</p>
+            <div>
+              <h3>Gestión y finanzas</h3>
+              <p>Analiza tus ventas con IA y decide con datos, no con corazonadas.</p>
+              <span class="cat-count">1 tutorial</span>
+            </div>
           </a>
-          <a href="/tutoriales/#equipo" class="cat-card">
+          <a href="/tutoriales/#equipo" class="cat-card cat-card--wide cat-card--tint">
             <div class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <h3>Equipo y cultura</h3>
-            <p class="muted small">Capacita a tu equipo en IA con un plan de 30 días, sin fricción.</p>
+            <div>
+              <h3>Equipo y cultura</h3>
+              <p>Capacita a tu equipo en IA con un plan de 30 días, sin fricción.</p>
+              <span class="cat-count">1 tutorial</span>
+            </div>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ============ TUTORIALES DESTACADOS ============ -->
+    <!-- ============ TUTORIALES DESTACADOS (índice editorial) ============ -->
     <section class="section section--soft" id="tutoriales">
       <div class="container">
-        <div class="center" style="max-width:640px;margin:0 auto 2.5em">
-          <span class="kicker">Tutoriales destacados</span>
-          <h2>Empieza con estos pasos guiados</h2>
-          <p class="lead" style="margin:0 auto">Cada guía incluye objetivo, tiempo estimado, pasos numerados, errores comunes y una checklist descargable.</p>
+        <div class="section-head">
+          <div>
+            <span class="kicker">Tutoriales destacados</span>
+            <h2>Empieza con estos pasos guiados</h2>
+          </div>
+          <p class="lead">Cada guía incluye objetivo, tiempo estimado, pasos numerados, errores comunes y una checklist descargable.</p>
         </div>
-        <div class="grid grid--3">
-          <article class="card">
-            <div class="card-art" style="background:#0d9488" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.3" fill="#fff" stroke="none"/></svg></div>
-            <div class="card-body">
+        <div class="lessons">
+          <article class="lesson">
+            <span class="lesson-num" aria-hidden="true">01</span>
+            <div class="lesson-body">
               <span class="tag tag--violet">Marketing</span>
               <h3><a href="/tutoriales/chatgpt-marketing-pyme.html">Cómo usar ChatGPT para el marketing de tu pyme (paso a paso)</a></h3>
               <p>Del brief al calendario de contenidos: genera ideas, copys y publicaciones en una tarde.</p>
-              <div class="card-meta"><span>25 min</span><span class="lvl lvl--easy">Principiante</span></div>
             </div>
+            <div class="lesson-meta"><span>25 min</span><span class="lvl lvl--easy">Principiante</span><span class="lesson-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
           </article>
-          <article class="card">
-            <div class="card-art" style="background:#d97706" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
-            <div class="card-body">
+          <article class="lesson">
+            <span class="lesson-num" aria-hidden="true">02</span>
+            <div class="lesson-body">
               <span class="tag tag--amber">Atención al cliente</span>
               <h3><a href="/tutoriales/atencion-cliente-ia.html">Cómo automatizar la atención al cliente con IA en un negocio pequeño</a></h3>
               <p>Responde la mayoría de las preguntas frecuentes en automático, sin perder el trato humano.</p>
-              <div class="card-meta"><span>30 min</span><span class="lvl lvl--easy">Principiante</span></div>
             </div>
+            <div class="lesson-meta"><span>30 min</span><span class="lvl lvl--easy">Principiante</span><span class="lesson-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
           </article>
-          <article class="card">
-            <div class="card-art" style="background:#0f766e" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18.5h2"/></svg></div>
-            <div class="card-body">
+          <article class="lesson">
+            <span class="lesson-num" aria-hidden="true">03</span>
+            <div class="lesson-body">
               <span class="tag tag--green">Marketing</span>
               <h3><a href="/tutoriales/contenido-redes-sociales-ia.html">Cómo crear contenido para redes sociales con IA</a></h3>
               <p>Un sistema semanal para no quedarte nunca sin ideas ni publicaciones.</p>
-              <div class="card-meta"><span>20 min</span><span class="lvl lvl--easy">Principiante</span></div>
             </div>
+            <div class="lesson-meta"><span>20 min</span><span class="lvl lvl--easy">Principiante</span><span class="lesson-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
           </article>
-          <article class="card">
-            <div class="card-art" style="background:#b45309" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="9" width="12" height="11" rx="2.5"/><path d="M12 9V5M9.5 5h5"/><circle cx="9.8" cy="14" r="1" fill="#fff" stroke="none"/><circle cx="14.2" cy="14" r="1" fill="#fff" stroke="none"/><path d="M10 17.3h4"/></svg></div>
-            <div class="card-body">
+          <article class="lesson">
+            <span class="lesson-num" aria-hidden="true">04</span>
+            <div class="lesson-body">
               <span class="tag tag--blue">Atención al cliente</span>
               <h3><a href="/tutoriales/chatbot-whatsapp-sin-programar.html">Chatbot de WhatsApp para tu negocio sin programar (guía 2026)</a></h3>
               <p>Monta un asistente que atiende tu WhatsApp Business 24/7, paso a paso.</p>
-              <div class="card-meta"><span>40 min</span><span class="lvl lvl--mid">Intermedio</span></div>
             </div>
+            <div class="lesson-meta"><span>40 min</span><span class="lvl lvl--mid">Intermedio</span><span class="lesson-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
           </article>
-          <article class="card">
-            <div class="card-art" style="background:#23403a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
-            <div class="card-body">
+          <article class="lesson">
+            <span class="lesson-num" aria-hidden="true">05</span>
+            <div class="lesson-body">
               <span class="tag tag--violet">Gestión</span>
               <h3><a href="/tutoriales/analizar-ventas-ia-excel.html">Cómo analizar tus ventas con IA en Excel y Google Sheets</a></h3>
               <p>Sube tu archivo de ventas y obtén insights, gráficos y decisiones en minutos.</p>
-              <div class="card-meta"><span>30 min</span><span class="lvl lvl--mid">Intermedio</span></div>
             </div>
+            <div class="lesson-meta"><span>30 min</span><span class="lvl lvl--mid">Intermedio</span><span class="lesson-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
           </article>
-          <article class="card">
-            <div class="card-art" style="background:#9a3412" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <div class="card-body">
+          <article class="lesson">
+            <span class="lesson-num" aria-hidden="true">06</span>
+            <div class="lesson-body">
               <span class="tag tag--amber">Equipo</span>
               <h3><a href="/tutoriales/capacitar-equipo-ia-30-dias.html">Cómo capacitar a tu equipo en IA: plan de 30 días para pymes</a></h3>
               <p>Un plan semana a semana para que todo tu equipo adopte la IA sin fricción.</p>
-              <div class="card-meta"><span>35 min</span><span class="lvl lvl--easy">Principiante</span></div>
             </div>
+            <div class="lesson-meta"><span>35 min</span><span class="lvl lvl--easy">Principiante</span><span class="lesson-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
           </article>
         </div>
         <div class="center" style="margin-top:2.5em">
@@ -244,24 +294,30 @@
 
     <!-- ============ CÓMO FUNCIONA ============ -->
     <section class="section" id="como-funciona">
-      <div class="container">
-        <div class="center" style="max-width:640px;margin:0 auto">
+      <div class="container split">
+        <div class="split-head">
           <span class="kicker">Nuestra metodología</span>
           <h2>Aprender IA no debería ser complicado</h2>
-          <p class="lead" style="margin:0 auto">Cada tutorial sigue el mismo método probado, pensado para gente ocupada que dirige un negocio.</p>
+          <p class="lead">Cada tutorial sigue el mismo método probado, pensado para gente ocupada que dirige un negocio.</p>
         </div>
         <div class="steps">
           <div class="step">
-            <h3>Aprende haciendo</h3>
-            <p class="muted">Nada de teoría abstracta. Cada guía empieza con un objetivo concreto y te lleva de la mano con pasos numerados y ejemplos reales que puedes copiar.</p>
+            <div>
+              <h3>Aprende haciendo</h3>
+              <p class="muted">Nada de teoría abstracta. Cada guía empieza con un objetivo concreto y te lleva de la mano con pasos numerados y ejemplos reales que puedes copiar.</p>
+            </div>
           </div>
           <div class="step">
-            <h3>Aplica en tu negocio</h3>
-            <p class="muted">Al final de cada tutorial tienes una plantilla o checklist lista para usar en tu empresa desde el primer día, adaptada a herramientas gratuitas.</p>
+            <div>
+              <h3>Aplica en tu negocio</h3>
+              <p class="muted">Al final de cada tutorial tienes una plantilla o checklist lista para usar en tu empresa desde el primer día, adaptada a herramientas gratuitas.</p>
+            </div>
           </div>
           <div class="step">
-            <h3>Mide y repite</h3>
-            <p class="muted">Te enseñamos qué medir (tiempo ahorrado, respuestas, ventas) para saber si la IA te está dando resultados y cómo mejorarlo cada mes.</p>
+            <div>
+              <h3>Mide y repite</h3>
+              <p class="muted">Te enseñamos qué medir (tiempo ahorrado, respuestas, ventas) para saber si la IA te está dando resultados y cómo mejorarlo cada mes.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -269,10 +325,11 @@
 
     <!-- ============ FAQ ============ -->
     <section class="section section--soft">
-      <div class="container">
-        <div class="center" style="max-width:640px;margin:0 auto">
+      <div class="container split">
+        <div class="split-head">
           <span class="kicker">Preguntas frecuentes</span>
           <h2>¿Tienes dudas? Empecemos por aquí</h2>
+          <p class="lead">Si no encuentras tu respuesta, escríbenos desde la <a href="/contacto.html">página de contacto</a>.</p>
         </div>
         <div class="faq">
           <div class="faq-item">
@@ -309,9 +366,9 @@
           <form class="newsletter-form" data-validate action="#" method="post">
             <label class="hp-field" aria-hidden="true">No rellenar<input type="text" name="empresa_fax" tabindex="-1" autocomplete="off"></label>
             <input type="email" name="email" required placeholder="tu@correo.com" aria-label="Tu correo electrónico">
-            <button type="submit" class="btn btn--accent">Quiero recibirlo</button>
+            <button type="submit" class="btn btn--primary">Quiero recibirlo</button>
           </form>
-          <p class="small" style="color:#c4b5fd;margin-top:1em">Al suscribirte aceptas nuestra <a href="/politica-privacidad.html" style="color:#fff">política de privacidad</a>.</p>
+          <p class="small" style="margin:1em auto 0">Al suscribirte aceptas nuestra <a href="/politica-privacidad.html">política de privacidad</a>.</p>
         </div>
       </div>
     </section>

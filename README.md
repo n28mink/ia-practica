@@ -26,42 +26,45 @@ ia-practica/
 │   ├── analizar-ventas-ia-excel.html
 │   └── capacitar-equipo-ia-30-dias.html
 └── assets/
-    ├── css/styles.css          # Sistema visual v4.0 "Papel y tinta" (tokens en :root)
+    ├── css/styles.css          # Sistema visual v5.0 "Tinta neutra" (ver DESIGN.md)
     ├── js/main.js              # ← CONFIGURAR: ADSENSE_CLIENT_ID y ANALYTICS_ID
-    ├── fonts/                  # Inter + Fraunces (woff2, autohospedadas, subset latin)
+    ├── fonts/                  # Geist (woff2 variable, autohospedada, OFL)
     └── img/favicon.svg
 ```
 
-## Diseño (v4.0 "Papel y tinta")
+## Diseño (v5.0 "Tinta neutra")
 
-Rediseño completo de la estructura visual. Referencia de 21st.dev: el
-componente **AI Prompt Box** (compositor de prompts con barra de chips y
-botón de envío circular), reinterpretado en HTML/CSS/JS puro como pieza
-central del hero. Aplicado con las skills UI UX Pro Max (paleta
-educación teal + ámbar, par tipográfico serif + sans) y Emil Design
-Engineering (criterios de movimiento).
+El sistema completo está en [`DESIGN.md`](DESIGN.md). La v5 aplica la skill
+**Taste** (`.claude/skills/`) sobre la v4 para quitar los rasgos típicos del
+diseño hecho con IA:
 
-- **Paleta**: papel `#f7f4ee`, tinta `#16130f`, gris `#6b6358`, línea
-  `#e2dccf`, acento teal `#0f766e` y ámbar `#b45309` solo como subrayado.
-- **Tipografía**: titulares en Fraunces (serif), texto en Inter 17px/1.6.
-- **Navegación**: píldora flotante con blur; en móvil, panel que se
-  despliega desde la píldora (opacidad + transform, 180 ms).
-- **Hero**: compositor oscuro con 4 chips (Marketing, Atención, Ventas,
-  Equipo). El primer ejemplo se "escribe" una vez; cambiar de chip es
-  instantáneo y el botón circular abre el tutorial de ese ejemplo. Sin
-  JS, los chips son enlaces a la categoría.
-- **Portada**: cifras, categorías en bento asimétrico, tutoriales como
-  índice editorial numerado, método y FAQ en dos columnas con titular
-  fijo, boletín sobre teal profundo.
-- **Footer**: oscuro, con el mismo lenguaje que el compositor.
-- **Movimiento**: curvas `--ease-out`/`--ease-in-out`/`--ease-drawer`,
-  UI < 300 ms, `:active` con `scale(.97)`, hover solo con puntero fino,
-  nada de `transition: all`, `prefers-reduced-motion` respetado.
-- **Móvil**: `viewport-fit=cover`, safe-areas, inputs a 16px, sin
-  desbordamiento horizontal (verificado a 390px).
-- Mantiene: funcionalidad de filtros, cookies, AdSense, formularios y
-  SEO sin cambios; el marcado de cabecera, pie y páginas interiores no
-  se tocó (se restilizan solo con CSS).
+- Geist en todo, en lugar de Fraunces e Inter.
+- Neutros zinc con un solo acento teal; etiquetas de categoría neutras.
+- Modo oscuro automático (`prefers-color-scheme`), sin secciones invertidas.
+- Iconos Phosphor en lugar de iconos dibujados a mano.
+- Cabeceras de sección apiladas y menos etiquetas sobre titulares.
+- Preguntas frecuentes visibles en cuadrícula (sin acordeón).
+- Sin rayas en el texto visible.
+- Barra de lectura solo con CSS, sin listener de scroll.
+- Se mantiene de la v4: el compositor de prompts del hero (referencia
+  21st.dev · AI Prompt Box), el bento, el índice de lecciones y el criterio de
+  movimiento de Emil Kowalski.
+
+## Pruebas
+
+Pruebas end-to-end con Playwright en `tests/`:
+
+```bash
+cd tests
+npm install
+npx playwright install   # descarga Chromium, Firefox y WebKit
+npm test
+```
+
+Cubren formularios (envío vacío, email inválido, envío válido, doble envío,
+texto larguísimo, solo teclado, honeypot), los chips del hero, el menú móvil,
+los filtros del índice, la página 404, los enlaces internos y el desbordamiento
+horizontal. `tests/`, `.claude/` y `DESIGN.md` no se publican (`.vercelignore`).
 
 ## Puesta en marcha (5 pasos)
 

@@ -45,28 +45,6 @@
     });
   }
 
-  /* ---------- FAQ acordeón ---------- */
-  $all('.faq-item').forEach(function (item) {
-    var btn = $('.faq-q', item);
-    var panel = $('.faq-a', item);
-    if (!btn || !panel) return;
-    btn.setAttribute('aria-expanded', 'false');
-    btn.addEventListener('click', function () {
-      var isOpen = item.classList.contains('open');
-      // Cerrar otros (comportamiento acordeón)
-      $all('.faq-item.open').forEach(function (other) {
-        other.classList.remove('open');
-        $('.faq-a', other).style.maxHeight = null;
-        $('.faq-q', other).setAttribute('aria-expanded', 'false');
-      });
-      if (!isOpen) {
-        item.classList.add('open');
-        panel.style.maxHeight = panel.scrollHeight + 'px';
-        btn.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-
   /* ---------- Botones "Copiar" en bloques de prompt ---------- */
   $all('.prompt').forEach(function (block) {
     var pre = $('pre', block);
@@ -98,22 +76,6 @@
     });
     block.appendChild(btn);
   });
-
-  /* ---------- Barra de progreso de lectura ---------- */
-  var progress = $('.read-progress');
-  if (progress) {
-    var article = $('.prose');
-    function updateProgress() {
-      var target = article || document.body;
-      var total = target.scrollHeight - window.innerHeight;
-      var scrolled = window.scrollY;
-      var pct = total > 0 ? Math.min(100, Math.max(0, (scrolled / total) * 100)) : 0;
-      progress.style.width = pct + '%';
-    }
-    window.addEventListener('scroll', updateProgress, { passive: true });
-    window.addEventListener('resize', updateProgress);
-    updateProgress();
-  }
 
   /* ============================================================
      CONSENTIMIENTO DE COOKIES (estilo Google Consent Mode)
@@ -319,7 +281,7 @@
 
       if (!valid) {
         e.preventDefault();
-        var firstInvalid = form.querySelector('.field.invalid input, .field.invalid textarea');
+        var firstInvalid = form.querySelector('.field.invalid input, .field.invalid textarea, .field.invalid select');
         if (firstInvalid) firstInvalid.focus();
         return;
       }

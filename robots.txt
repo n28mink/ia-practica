@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.iapractica.com/sitemap.xml
+Sitemap: https://ia-practica-28ti.vercel.app/sitemap.xml

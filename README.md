@@ -130,8 +130,9 @@ propias de esa plataforma (ambos archivos documentan los valores exactos).
 
 ## Notas
 
-- El dominio `https://www.iapractica.com/` es provisional: actualízalo en los
-  `canonical`, `sitemap.xml`, `robots.txt` y JSON-LD cuando tengas el dominio final.
+- El dominio actual es `https://ia-practica-28ti.vercel.app/` (producción en
+  Vercel). Si conectas un dominio propio, actualízalo en los `canonical`,
+  `og:url`, `sitemap.xml`, `robots.txt` y JSON-LD.
 - No publiques contenido nuevo a gran escala sin revisión: Google penaliza el
   contenido masivo sin valor (ver informe de investigación en
   `~/workspace/research_notes/nicho-herramientas-ia-20260930-1639/`).

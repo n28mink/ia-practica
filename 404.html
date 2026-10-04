@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Página no encontrada (404) | IA Práctica</title>
   <meta name="robots" content="noindex, follow">
-  <meta name="theme-color" content="#fbfbfd">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafafa">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f0f11">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self';">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/styles.css">
@@ -14,7 +15,7 @@
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/" aria-label="IA Práctica — inicio">
+      <a class="brand" href="/" aria-label="IA Práctica, inicio">
         <span class="brand-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.8 2.8M16.2 16.2L19 19M19 5l-2.8 2.8M7.8 16.2L5 19"/><circle cx="12" cy="12" r="3.2" fill="#fff" stroke="none"/></svg></span>
         <span>IA Práctica<small>Tutoriales de IA para negocios</small></span>
       </a>
@@ -28,7 +29,7 @@
   <main id="contenido">
     <section class="hero" style="text-align:center">
       <div class="container">
-        <p style="font-size:4rem;margin:0" aria-hidden="true"><svg viewBox="0 0 24 24" width="72" height="72" fill="none" stroke="#d97706" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="9" width="12" height="11" rx="2.5"/><path d="M12 9V5M9.5 5h5"/><circle cx="9.8" cy="14" r="1" fill="#d97706" stroke="none"/><circle cx="14.2" cy="14" r="1" fill="#d97706" stroke="none"/><path d="M10 17.3h4"/></svg></p>
+        <p style="font-size:4rem;margin:0" aria-hidden="true"><svg class="ph" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M200,48H136V16a8,8,0,0,0-16,0V48H56A32,32,0,0,0,24,80V192a32,32,0,0,0,32,32H200a32,32,0,0,0,32-32V80A32,32,0,0,0,200,48Zm16,144a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V80A16,16,0,0,1,56,64H200a16,16,0,0,1,16,16Zm-52-56H92a28,28,0,0,0,0,56h72a28,28,0,0,0,0-56Zm-24,16v24H116V152ZM80,164a12,12,0,0,1,12-12h8v24H92A12,12,0,0,1,80,164Zm84,12h-8V152h8a12,12,0,0,1,0,24ZM72,108a12,12,0,1,1,12,12A12,12,0,0,1,72,108Zm88,0a12,12,0,1,1,12,12A12,12,0,0,1,160,108Z"/></svg></p>
         <h1>Página no encontrada</h1>
         <p class="lead">La página que buscas no existe o fue movida. Pero los tutoriales sí existen, y están aquí:</p>
         <p style="margin-top:1.5em">
@@ -46,6 +47,6 @@
       </div>
     </div>
   </footer>
-  <script>document.querySelectorAll('[data-year]').forEach(function(el){el.textContent=new Date().getFullYear();});</script>
+  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

@@ -26,40 +26,45 @@ ia-practica/
 │   ├── analizar-ventas-ia-excel.html
 │   └── capacitar-equipo-ia-30-dias.html
 └── assets/
-    ├── css/styles.css          # Sistema visual v3.0 "Claro y directo" (tokens en :root)
+    ├── css/styles.css          # Sistema visual v5.0 "Tinta neutra" (ver DESIGN.md)
     ├── js/main.js              # ← CONFIGURAR: ADSENSE_CLIENT_ID y ANALYTICS_ID
-    ├── fonts/                  # Inter (woff2, autohospedada, subset latin)
+    ├── fonts/                  # Geist (woff2 variable, autohospedada, OFL)
     └── img/favicon.svg
 ```
 
-## Diseño (v3.0 "Claro y directo", 2026-09-30)
+## Diseño (v5.0 "Tinta neutra")
 
-Rediseño inspirado en el lenguaje visual de Apple (sin copiar marca ni activos):
-aplicado con las skills Apple Design, Frontend Design, UI UX Pro Max,
-Emil Design Engineering y Mobile Native.
+El sistema completo está en [`DESIGN.md`](DESIGN.md). La v5 aplica la skill
+**Taste** (`.claude/skills/`) sobre la v4 para quitar los rasgos típicos del
+diseño hecho con IA:
 
-- **Paleta**: fondo `#fbfbfd`, sección `#f5f5f7`, tinta `#1d1d1f`,
-  gris `#6e6e73`, línea `#d2d2d7` y un solo acento teal propio `#0d9488`.
-- **Tipografía**: Inter en todo (titulares 700 con tracking apretado
-  `-0.032em`, cuerpo 17px/1.6). Sin serif.
-- **Hero**: centrado, titular gigante, CTAs y la demo del prompt debajo
-  como "foto de producto". La demo se "escribe" sola una vez
-  (respeta `prefers-reduced-motion`).
-- **Navegación**: barra translúcida con blur (72% opacidad + saturación),
-  60px, hamburguesa animada en móvil.
-- **Botones**: píldora (radio 980px), `:active` con scale .96,
-  hovers solo en puntero fino.
-- **Tarjetas**: blancas, radio 18px, arte monocromo (tinta teal sobre
-  fondo suave), etiquetas neutras.
-- **Boletín**: sección negra sólida con formulario píldora.
-- **Footer**: claro `#f5f5f7`, texto 13px gris.
-- **Móvil nativo**: `viewport-fit=cover`, safe-areas, inputs a 16px
-  (iOS no hace zoom), sin flash de tap, sin hovers pegados.
-- **Bugs corregidos**: filtros del índice (regla `[hidden]`) y anclas de
-  categorías de la portada (ahora activan el filtro real vía hash:
-  `/tutoriales/#marketing`, `#atencion`, `#gestion`, `#equipo`).
+- Geist en todo, en lugar de Fraunces e Inter.
+- Neutros zinc con un solo acento teal; etiquetas de categoría neutras.
+- Modo oscuro automático (`prefers-color-scheme`), sin secciones invertidas.
+- Iconos Phosphor en lugar de iconos dibujados a mano.
+- Cabeceras de sección apiladas y menos etiquetas sobre titulares.
+- Preguntas frecuentes visibles en cuadrícula (sin acordeón).
+- Sin rayas en el texto visible.
+- Barra de lectura solo con CSS, sin listener de scroll.
+- Se mantiene de la v4: el compositor de prompts del hero (referencia
+  21st.dev · AI Prompt Box), el bento, el índice de lecciones y el criterio de
+  movimiento de Emil Kowalski.
 
-Para cambiar la paleta, edita los tokens en `:root` al inicio de `styles.css`.
+## Pruebas
+
+Pruebas end-to-end con Playwright en `tests/`:
+
+```bash
+cd tests
+npm install
+npx playwright install   # descarga Chromium, Firefox y WebKit
+npm test
+```
+
+Cubren formularios (envío vacío, email inválido, envío válido, doble envío,
+texto larguísimo, solo teclado, honeypot), los chips del hero, el menú móvil,
+los filtros del índice, la página 404, los enlaces internos y el desbordamiento
+horizontal. `tests/`, `.claude/` y `DESIGN.md` no se publican (`.vercelignore`).
 
 ## Puesta en marcha (5 pasos)
 

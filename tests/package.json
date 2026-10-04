@@ -1,0 +1,12 @@
+{
+  "name": "ia-practica-tests",
+  "private": true,
+  "description": "Pruebas end-to-end del sitio estático con Playwright",
+  "scripts": {
+    "test": "playwright test",
+    "test:report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0"
+  }
+}

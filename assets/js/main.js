@@ -45,28 +45,6 @@
     });
   }
 
-  /* ---------- FAQ acordeón ---------- */
-  $all('.faq-item').forEach(function (item) {
-    var btn = $('.faq-q', item);
-    var panel = $('.faq-a', item);
-    if (!btn || !panel) return;
-    btn.setAttribute('aria-expanded', 'false');
-    btn.addEventListener('click', function () {
-      var isOpen = item.classList.contains('open');
-      // Cerrar otros (comportamiento acordeón)
-      $all('.faq-item.open').forEach(function (other) {
-        other.classList.remove('open');
-        $('.faq-a', other).style.maxHeight = null;
-        $('.faq-q', other).setAttribute('aria-expanded', 'false');
-      });
-      if (!isOpen) {
-        item.classList.add('open');
-        panel.style.maxHeight = panel.scrollHeight + 'px';
-        btn.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-
   /* ---------- Botones "Copiar" en bloques de prompt ---------- */
   $all('.prompt').forEach(function (block) {
     var pre = $('pre', block);
@@ -98,22 +76,6 @@
     });
     block.appendChild(btn);
   });
-
-  /* ---------- Barra de progreso de lectura ---------- */
-  var progress = $('.read-progress');
-  if (progress) {
-    var article = $('.prose');
-    function updateProgress() {
-      var target = article || document.body;
-      var total = target.scrollHeight - window.innerHeight;
-      var scrolled = window.scrollY;
-      var pct = total > 0 ? Math.min(100, Math.max(0, (scrolled / total) * 100)) : 0;
-      progress.style.width = pct + '%';
-    }
-    window.addEventListener('scroll', updateProgress, { passive: true });
-    window.addEventListener('resize', updateProgress);
-    updateProgress();
-  }
 
   /* ============================================================
      CONSENTIMIENTO DE COOKIES (estilo Google Consent Mode)
@@ -319,7 +281,7 @@
 
       if (!valid) {
         e.preventDefault();
-        var firstInvalid = form.querySelector('.field.invalid input, .field.invalid textarea');
+        var firstInvalid = form.querySelector('.field.invalid input, .field.invalid textarea, .field.invalid select');
         if (firstInvalid) firstInvalid.focus();
         return;
       }
@@ -386,19 +348,33 @@
   /* ============================================================
      MOTION (criterio Emil: poco, con propósito, respeta
      prefers-reduced-motion)
-     1. Hero: el prompt de ejemplo se "escribe" solo una vez,
-        como demostración de lo que enseñan los tutoriales.
+     1. Hero: el prompt de ejemplo se "escribe" solo una vez;
+        cambiar de ejemplo con los chips es instantáneo.
      2. Reveal sutil al hacer scroll en tarjetas y pasos.
      ============================================================ */
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ---- 1. Demo de prompt en el hero ----
+  // ---- 1. Compositor del hero: el prompt se "escribe" solo una vez; ----
+  //         los chips cambian de ejemplo al instante (acción repetible: sin tipeo).
   var pdText = $('#pd-text');
   var pdResponse = $('#pd-response');
   var pdCaret = $('#pd-caret');
+  var pdReply = $('#pd-reply');
+  var pdLink = $('#pd-link');
+  var pdSend = $('#pd-send');
+  var pdChips = $all('#pd-chips .chip');
   if (pdText && pdResponse) {
     var fullText = pdText.textContent;
     var demoStarted = false;
+    var typingTimer = null;
+    var respTimer = null;
+
+    function stopTyping() {
+      clearInterval(typingTimer);
+      clearTimeout(respTimer);
+      if (pdCaret) pdCaret.style.display = 'none';
+    }
+
     function runDemo() {
       if (demoStarted) return;
       demoStarted = true;
@@ -409,18 +385,36 @@
       }
       pdText.textContent = '';
       var i = 0;
-      var timer = setInterval(function () {
+      typingTimer = setInterval(function () {
         i += 1;
         pdText.textContent = fullText.slice(0, i);
         if (i >= fullText.length) {
-          clearInterval(timer);
-          if (pdCaret) pdCaret.style.display = 'none';
-          // Pequeña pausa antes de mostrar la respuesta
-          setTimeout(function () { pdResponse.classList.add('show'); }, 450);
+          stopTyping();
+          respTimer = setTimeout(function () { pdResponse.classList.add('show'); }, 450);
         }
       }, 22);
     }
-    var demoBox = pdText.closest('.prompt-demo');
+
+    // Chips: sin JS son enlaces a la categoría; con JS cambian el ejemplo
+    pdChips.forEach(function (chip) {
+      chip.addEventListener('click', function (e) {
+        e.preventDefault();
+        stopTyping();
+        demoStarted = true;
+        pdChips.forEach(function (c) { c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+        pdResponse.classList.remove('show');
+        pdText.textContent = chip.getAttribute('data-prompt');
+        pdReply.textContent = chip.getAttribute('data-reply');
+        pdLink.setAttribute('href', chip.getAttribute('data-href'));
+        if (pdSend) pdSend.setAttribute('href', chip.getAttribute('data-href'));
+        // Doble rAF: asegura que el estado oculto se pinte y la transición se dispare
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () { pdResponse.classList.add('show'); });
+        });
+      });
+    });
+
+    var demoBox = pdText.closest('.composer');
     if ('IntersectionObserver' in window && demoBox) {
       var dio = new IntersectionObserver(function (entries) {
         entries.forEach(function (en) {
@@ -437,7 +431,7 @@
   /* Los elementos son visibles por defecto (CSS). La clase .revealed solo
      dispara la animación de entrada (.5s) cuando el elemento entra al
      viewport por primera vez: el contenido nunca puede quedar invisible. */
-  var revealEls = $all('.card, .cat-card, .step');
+  var revealEls = $all('.card, .cat-card, .step, .lesson, .proof-item');
   if (revealEls.length && 'IntersectionObserver' in window && !reduceMotion) {
     revealEls.forEach(function (el) { el.setAttribute('data-reveal', ''); });
     var rio = new IntersectionObserver(function (entries) {

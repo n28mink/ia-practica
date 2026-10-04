@@ -7,7 +7,8 @@
   <meta name="description" content="Contáctanos: sugerencias de tutoriales, correcciones o preguntas sobre IA Práctica. Respondemos en español.">
   <link rel="canonical" href="https://www.iapractica.com/contacto.html">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#fbfbfd">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafafa">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f0f11">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_ES">
   <meta property="og:site_name" content="IA Práctica">
@@ -22,7 +23,7 @@
   {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    "name": "Contacto — IA Práctica",
+    "name": "Contacto | IA Práctica",
     "url": "https://www.iapractica.com/contacto.html",
     "inLanguage": "es"
   }
@@ -33,7 +34,7 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/" aria-label="IA Práctica — inicio">
+      <a class="brand" href="/" aria-label="IA Práctica, inicio">
         <span class="brand-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.8 2.8M16.2 16.2L19 19M19 5l-2.8 2.8M7.8 16.2L5 19"/><circle cx="12" cy="12" r="3.2" fill="#fff" stroke="none"/></svg></span>
         <span>IA Práctica<small>Tutoriales de IA para negocios</small></span>
       </a>
@@ -64,29 +65,29 @@
             <label class="hp-field" aria-hidden="true">No rellenar<input type="text" name="empresa_fax" tabindex="-1" autocomplete="off"></label>
             <div class="field">
               <label for="c-nombre">Nombre</label>
-              <input type="text" id="c-nombre" name="nombre" required autocomplete="name" maxlength="80">
-              <span class="error-msg">Escribe tu nombre.</span>
+              <input type="text" id="c-nombre" name="nombre" required autocomplete="name" maxlength="80" aria-describedby="c-nombre-error">
+              <span class="error-msg" id="c-nombre-error">Escribe tu nombre.</span>
             </div>
             <div class="field">
               <label for="c-email">Correo electrónico</label>
-              <input type="email" id="c-email" name="email" required autocomplete="email" maxlength="120">
-              <span class="error-msg">Escribe un correo válido.</span>
+              <input type="email" id="c-email" name="email" required autocomplete="email" maxlength="120" aria-describedby="c-email-error">
+              <span class="error-msg" id="c-email-error">Escribe un correo válido.</span>
             </div>
             <div class="field">
               <label for="c-asunto">Asunto</label>
-              <select id="c-asunto" name="asunto" required>
+              <select id="c-asunto" name="asunto" required aria-describedby="c-asunto-error">
                 <option value="">Elige un asunto…</option>
                 <option value="sugerencia">Sugerencia de tutorial</option>
                 <option value="correccion">Corrección en un tutorial</option>
                 <option value="pregunta">Pregunta general</option>
                 <option value="otro">Otro</option>
               </select>
-              <span class="error-msg">Elige un asunto.</span>
+              <span class="error-msg" id="c-asunto-error">Elige un asunto.</span>
             </div>
             <div class="field">
               <label for="c-mensaje">Mensaje</label>
-              <textarea id="c-mensaje" name="mensaje" required maxlength="2000" placeholder="Cuéntanos con detalle: ¿qué tutorial? ¿qué paso? ¿qué esperabas que pasara?"></textarea>
-              <span class="error-msg">Escribe tu mensaje.</span>
+              <textarea id="c-mensaje" name="mensaje" required maxlength="2000" placeholder="Cuéntanos con detalle: ¿qué tutorial? ¿qué paso? ¿qué esperabas que pasara?" aria-describedby="c-mensaje-error"></textarea>
+              <span class="error-msg" id="c-mensaje-error">Escribe tu mensaje.</span>
             </div>
             <p class="small muted">Al enviar aceptas nuestra <a href="/politica-privacidad.html">política de privacidad</a>. Solo usamos tus datos para responderte.</p>
             <p class="form-note" data-form-note role="status"></p>
